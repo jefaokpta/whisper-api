@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "dev": "node-dev main.js"
+  },
+  "devDependencies": {
+    "node-dev": "^8.0.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

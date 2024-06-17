@@ -5,7 +5,7 @@ const { spawnSync } = require('child_process');
 
 
 app.get('/', (req, res) => {
-    transcribe('momoa.ogg')
+    transcribe('desculpa.ogg')
     res.sendStatus(200)
 });
 
@@ -15,7 +15,7 @@ app.listen(port, () => {
 
 function transcribe(audioName) {
     const command = 'venv/bin/whisper '
-        + audioName + ' ' +
+        + 'audios/'+ audioName + ' ' +
         '--model=large ' +
         '--fp16=False ' +
         '--language=pt ' +

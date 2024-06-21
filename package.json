@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "dev": "node-dev main.js"
+    "dev": "node-dev src/main.js",
+    "start": "node src/main.js"
   },
   "devDependencies": {
     "node-dev": "^8.0.0"

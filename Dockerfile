@@ -16,6 +16,17 @@ COPY src/ ./src
 # Exponha a porta que o aplicativo usará
 EXPOSE 3000
 
-## todo: instalar python e whisper
+RUN apt-get update \
+    && apt-get -y install ffmpeg \
+    && apt-get -y install python3.11-venv \
+    && python3 -m venv venv \
+    && apt-get clean
+
+ENV PATH="venv/bin:$PATH"
+
+RUN pip3 install --upgrade pip \
+    && pip3 install git+https://github.com/openai/whisper.git
+
+
 # Defina o comando para iniciar o aplicativo
 CMD [ "npm", "run", "start" ]

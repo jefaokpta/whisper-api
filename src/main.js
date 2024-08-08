@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const {spawnSync} = require('child_process');
-const {readFile} = require('fs');
+const {readFile, unlink} = require('fs');
 
 app.use(express.json());
 
@@ -20,6 +20,11 @@ app.post('/', (req, res) => {
             console.error(err)
             return
         }
+        unlink(transcriptionFile, (err) => {
+            if (err) {
+                console.error(err)
+            }
+        }) //todo: deletar o arquivo de audio da transcrição
         res.json(JSON.parse(data.toString()))
     })
 });

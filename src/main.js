@@ -24,7 +24,12 @@ app.post('/', (req, res) => {
             if (err) {
                 console.error(err)
             }
-        }) //todo: deletar o arquivo de audio da transcrição
+        })
+        unlink('audios/' + audio, (err) => {
+            if (err) {
+                console.error(err)
+            }
+        })
         res.json(JSON.parse(data.toString()))
     })
 });
